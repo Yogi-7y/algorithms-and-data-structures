@@ -23,3 +23,4 @@ linter:
     lines_longer_than_80_chars: false
     diagnostic_describe_all_properties: false
     avoid_function_literals_in_foreach_calls: false
+    public_member_api_docs: false
