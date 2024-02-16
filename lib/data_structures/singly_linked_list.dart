@@ -7,7 +7,7 @@ class Node<T> {
   final T value;
   Node<T>? next;
 
-  void add(T value) => next = Node(value: value);
+  void addNode(Node<T> node) => next = node;
 
   @override
   String toString() => 'Node{value: $value, next: $next}';
@@ -34,7 +34,7 @@ class SinglyLinkedList<T> {
       return;
     }
 
-    tail?.add(value);
+    tail?.addNode(_node);
     tail = _node;
     length++;
   }
@@ -49,8 +49,35 @@ class SinglyLinkedList<T> {
       return;
     }
 
-    head?.add(value);
+    head?.addNode(_node);
     head = _node;
     length++;
+  }
+
+  T? pop() {
+    if (length == 0) return null;
+
+    var current = head;
+    var previous = current;
+
+    while (current?.next != null) {
+      previous = current;
+      current = current?.next;
+    }
+
+    tail = previous;
+    tail?.next = null;
+    length--;
+
+    if (length == 0) {
+      head = null;
+      tail = null;
+    }
+
+    return current?.value;
+  }
+
+  T shift() {
+    throw UnimplementedError();
   }
 }

@@ -27,10 +27,15 @@ void main() {
     () {
       final _singleLinkedList = SinglyLinkedList<int>()
         ..push(1)
-        ..push(2);
+        ..push(2)
+        ..push(3);
 
       expect(_singleLinkedList.head != _singleLinkedList.tail, isTrue);
-      expect(_singleLinkedList.length, 2);
+      expect(_singleLinkedList.length, 3);
+      expect(_singleLinkedList.head?.value, 1);
+      expect(_singleLinkedList.head?.next?.value, 2);
+      expect(_singleLinkedList.tail?.value, 3);
+      expect(_singleLinkedList.head?.next?.next, _singleLinkedList.tail);
     },
   );
 
@@ -44,6 +49,32 @@ void main() {
     expect(_singleLinkedList.tail?.value, 2);
     expect(_singleLinkedList.length, 3);
 
+    return null;
+  });
+
+  test('pop', () {
+    final _singleLinkedList = SinglyLinkedList<int>()
+      ..push(1)
+      ..push(2)
+      ..push(3);
+
+    expect(_singleLinkedList.head?.value, 1);
+    expect(_singleLinkedList.tail?.value, 3);
+
+    expect(_singleLinkedList.pop(), 3);
+    expect(_singleLinkedList.tail?.value, 2);
+
+    expect(_singleLinkedList.pop(), 2);
+    expect(_singleLinkedList.tail?.value, 1);
+
+    expect(_singleLinkedList.pop(), 1);
+    expect(_singleLinkedList.tail, isNull);
+    expect(_singleLinkedList.head, isNull);
+
+    return null;
+  });
+
+  test('shift', () {
     return null;
   });
 }
