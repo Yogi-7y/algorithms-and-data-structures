@@ -3,20 +3,19 @@ import '../types.dart';
 /// Sorting algorithm where the highest value bubbles up to the end.
 /// Time complexity: O(n^2)
 /// With the `noSwap` short-circuit, the best case is O(n)
+///
+/// If you've N items to sort, you'll have N-1 decisions, because the last one has no choice!
 Numbers bubbleSort(Numbers array) {
-  final _arrayCopy = array.toList();
+  for (var i = 0; i < array.length - 1; i++) {
+    var noSwap = false;
 
-  bool noSwap;
+    for (var j = 0; j < array.length - i - 1; j++) {
+      final current = array[j];
+      final next = array[j + 1];
 
-  for (var i = 0; i < _arrayCopy.length; i++) {
-    noSwap = true;
-    for (var j = 0; j < (_arrayCopy.length - i) - 1; j++) {
-      final _current = _arrayCopy[j];
-      final _next = _arrayCopy[j + 1];
-
-      if (_current > _next) {
-        _arrayCopy[j] = _next;
-        _arrayCopy[j + 1] = _current;
+      if (current > next) {
+        array[j] = next;
+        array[j + 1] = current;
         noSwap = false;
       }
     }
@@ -24,5 +23,5 @@ Numbers bubbleSort(Numbers array) {
     if (noSwap) break;
   }
 
-  return _arrayCopy;
+  return array;
 }

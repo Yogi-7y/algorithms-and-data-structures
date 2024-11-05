@@ -1,7 +1,7 @@
 import 'package:algorithms_and_data_structures/sort/bubble_sort.dart';
 import 'package:test/test.dart';
 
-const _input = [1, 2, 5, 2, 8, 1, 5];
+final _input = [1, 2, 5, 2, 8, 1, 5];
 
 void main() {
   test(
@@ -9,7 +9,6 @@ void main() {
     () async {
       final _expectedResult = [1, 1, 2, 2, 5, 5, 8];
       final _result = bubbleSort(_input);
-
       expect(_result, _expectedResult);
     },
   );
