@@ -3,21 +3,36 @@ import '../types.dart';
 /// Similar to bubble sort, but instead of first placing large values into
 /// sorted position, it places small values into sorted position.
 /// Time complexity: O(n^2)
+///
+/// 1. Start with considering the 1st item as the smallest value.
+/// 2. Compare it with other items in the array and if you find something smaller, store their index \
+/// and them swap towards the end with the current index.
 Numbers selectionSort(Numbers array) {
   for (var i = 0; i < array.length; i++) {
-    var minItemIndex = i;
-    for (var j = i + 1; j < array.length; j++) {
-      final _currentValue = array[j];
-      final _lowestValue = array[minItemIndex];
+    final currentValue = array[i];
+    var minimumValueIndex = i;
+    var minimumValue = array[minimumValueIndex];
 
-      if (_currentValue < _lowestValue) {
-        minItemIndex = j;
+    for (var j = i + 1; j < array.length; j++) {
+      final currentValue = array[j];
+
+      if (currentValue < minimumValue) {
+        minimumValueIndex = j;
+        minimumValue = array[minimumValueIndex];
       }
     }
-    final temp = array[i];
-    array[i] = array[minItemIndex];
-    array[minItemIndex] = temp;
+
+    array[i] = minimumValue;
+    array[minimumValueIndex] = currentValue;
   }
 
   return array;
+}
+
+void main() {
+  final array = [19, 44, 38, 5, 47, 15];
+
+  final result = selectionSort(array);
+
+  print(result); // [5, 15, 19, 38, 44, 47]
 }
