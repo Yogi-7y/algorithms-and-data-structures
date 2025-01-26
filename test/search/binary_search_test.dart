@@ -5,18 +5,18 @@ const _array = [1, 2, 4, 9, 12, 15, 20, 26, 33, 45];
 
 void main() {
   test('should return true, when searched for 4', () {
-    const _searchTerm = 4;
+    const searchTerm = 4;
 
-    final _result = binarySearch(_array, _searchTerm);
+    final result = binarySearch(_array, searchTerm);
 
-    expect(_result, isTrue);
+    expect(result, isTrue);
   });
 
   test('should return false, when searched for 8', () {
-    const _searchTerm = 8;
+    const searchTerm = 8;
 
-    final _result = binarySearch(_array, _searchTerm);
+    final result = binarySearch(_array, searchTerm);
 
-    expect(_result, isFalse);
+    expect(result, isFalse);
   });
 }

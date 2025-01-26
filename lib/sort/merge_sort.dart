@@ -25,6 +25,8 @@ Numbers mergeSort(Numbers array) {
 Numbers merge(Numbers arrayOne, Numbers arrayTwo) {
   final _result = <int>[];
 
+  /// [4, 6, 8] [1, 2, 5, 7]
+
   var i = 0;
   var j = 0;
 

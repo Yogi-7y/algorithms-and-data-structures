@@ -14,16 +14,16 @@ bool binarySearch(List<int> array, int search) {
   var middle = ((start + end) / 2).floor();
 
   while (start <= end) {
-    final _middleValue = array[middle];
+    final middleValue = array[middle];
 
-    if (_middleValue == search) return true;
+    if (middleValue == search) return true;
 
-    if (_middleValue > search) {
+    if (middleValue > search) {
       end = middle - 1;
       middle = ((start + end) / 2).floor();
     }
 
-    if (_middleValue < search) {
+    if (middleValue < search) {
       start = middle + 1;
       middle = ((start + end) / 2).floor();
     }

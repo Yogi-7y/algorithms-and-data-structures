@@ -4,20 +4,19 @@ import 'dart:math' as math;
 /// Given an array of integers and a number, find out the maximum sum of
 /// consecutive elements in the array.
 /// Example: [1, 2, 5, 2, 8, 1, 5] and 2 => 10
-
 int maxSubArraySum(List<int> array, int consecutiveNumber) {
-  var _tempSum = 0;
-  var _max = 0;
+  var tempSum = 0;
+  var max = 0;
 
-  final _initialList = array.sublist(0, consecutiveNumber);
-  final _initialListSum = _initialList.reduce((value, element) => value + element);
-  _max = _initialListSum;
-  _tempSum = _max;
+  final initialList = array.sublist(0, consecutiveNumber);
+  final initialListSum = initialList.reduce((value, element) => value + element);
+  max = initialListSum;
+  tempSum = max;
 
   for (var i = consecutiveNumber; i < array.length; i++) {
-    _tempSum = _tempSum - array[i - consecutiveNumber] + array[i];
-    _max = math.max(_tempSum, _max);
+    tempSum = tempSum - array[i - consecutiveNumber] + array[i];
+    max = math.max(tempSum, max);
   }
 
-  return _max;
+  return max;
 }

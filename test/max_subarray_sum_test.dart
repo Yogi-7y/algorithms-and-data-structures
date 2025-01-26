@@ -5,24 +5,24 @@ void main() {
   test(
     'should return 10',
     () {
-      const _input = [1, 2, 5, 2, 8, 1, 5];
-      const _number = 2;
-      const _expectedResult = 10;
+      const input = [1, 2, 5, 2, 8, 1, 5];
+      const number = 2;
+      const expectedResult = 10;
 
-      final _result = maxSubArraySum(_input, _number);
+      final result = maxSubArraySum(input, number);
 
-      expect(_result, _expectedResult);
+      expect(result, expectedResult);
     },
   );
 
   test('should return 17', () {
-    const _input = [1, 2, 5, 2, 8, 1, 5];
-    const _number = 4;
+    const input = [1, 2, 5, 2, 8, 1, 5];
+    const number = 4;
 
-    const _expectedResult = 17;
+    const expectedResult = 17;
 
-    final _result = maxSubArraySum(_input, _number);
+    final result = maxSubArraySum(input, number);
 
-    expect(_result, _expectedResult);
+    expect(result, expectedResult);
   });
 }
