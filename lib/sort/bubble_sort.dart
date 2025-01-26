@@ -1,36 +1,24 @@
-/// FixMe: `noSwap` should be `true` when swapping is not needed.
+/// Sorting algorithm where the highest value bubbles up to the end.
+/// Time complexity: O(n^2)
+/// With the `noSwap` short-circuit, the best case is O(n)
+///
+/// If you've N items to sort, you'll have N-1 decisions, because the last one has no choice!
+List<int> bubbleSort(List<int> input) {
+  for (var i = 0; i < input.length; i++) {
+    var noSwap = true;
+    for (var j = 0; j < input.length - 1; j++) {
+      final current = input[j];
+      final next = input[j + 1];
 
-// import '../types.dart';
+      if (current > next) {
+        input[j] = next;
+        input[j + 1] = current;
+        noSwap = false;
+      }
+    }
 
-// /// Sorting algorithm where the highest value bubbles up to the end.
-// /// Time complexity: O(n^2)
-// /// With the `noSwap` short-circuit, the best case is O(n)
-// ///
-// /// If you've N items to sort, you'll have N-1 decisions, because the last one has no choice!
-// Numbers bubbleSort(Numbers array) {
-//   for (var i = 0; i < array.length - 1; i++) {
-//     var noSwap = false;
+    if (noSwap) break;
+  }
 
-//     for (var j = 0; j < array.length - i - 1; j++) {
-//       final current = array[j];
-//       final next = array[j + 1];
-
-//       if (current > next) {
-//         array[j] = next;
-//         array[j + 1] = current;
-//         noSwap = false;
-//       }
-//     }
-
-//     if (noSwap) break;
-//   }
-
-//   return array;
-// }
-
-// void main() {
-//   final array = <int>[4, 9, 2, 40, 1];
-//   final result = bubbleSort(array);
-
-//   print(result); // [1, 2, 4, 9, 40];
-// }
+  return input;
+}

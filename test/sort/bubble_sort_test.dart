@@ -7,21 +7,21 @@ void main() {
   test(
     'should sort the array.',
     () async {
-      final _expectedResult = [1, 1, 2, 2, 5, 5, 8];
-      final _result = bubbleSort(_input);
-      expect(_result, _expectedResult);
+      final expectedResult = [1, 1, 2, 2, 5, 5, 8];
+      final result = bubbleSort(_input);
+      expect(result, expectedResult);
     },
   );
 
   test(
     'should short circuit and return sorted array',
     () {
-      final _input = [9, 1, 2, 3, 4, 5];
-      final _expectedResult = [1, 2, 3, 4, 5, 9];
+      final input = [9, 1, 2, 3, 4, 5];
+      final expectedResult = [1, 2, 3, 4, 5, 9];
 
-      final _result = bubbleSort(_input);
+      final result = bubbleSort(input);
 
-      expect(_result, _expectedResult);
+      expect(result, expectedResult);
     },
   );
 }
