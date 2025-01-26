@@ -1,7 +1,5 @@
-import '../types.dart';
-
-Numbers quickSort({
-  required Numbers array,
+List<int> quickSort({
+  required List<int> array,
   required int left,
   required int right,
 }) {
@@ -16,7 +14,7 @@ Numbers quickSort({
 }
 
 int pivot({
-  required Numbers array,
+  required List<int> array,
   required int start,
   required int end,
 }) {

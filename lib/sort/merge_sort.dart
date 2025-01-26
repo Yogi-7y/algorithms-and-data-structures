@@ -1,5 +1,3 @@
-import '../types.dart';
-
 /// Merge sort is a combination of Splitting -> Sorting -> Merging.
 /// Divide: Split the array into two halves recursively until there are individual elements.
 /// Conquer: Each individual element is already sorted.
@@ -12,7 +10,7 @@ import '../types.dart';
 ///
 /// Time Complexity: O(n log n)
 /// Space Complexity: O(n)
-Numbers mergeSort(Numbers array) {
+List<int> mergeSort(List<int> array) {
   if (array.length <= 1) return array;
 
   final mid = (array.length / 2).floor();
@@ -22,8 +20,8 @@ Numbers mergeSort(Numbers array) {
   return merge(left, right);
 }
 
-Numbers merge(Numbers arrayOne, Numbers arrayTwo) {
-  final _result = <int>[];
+List<int> merge(List<int> arrayOne, List<int> arrayTwo) {
+  final result = <int>[];
 
   /// [4, 6, 8] [1, 2, 5, 7]
 
@@ -35,24 +33,24 @@ Numbers merge(Numbers arrayOne, Numbers arrayTwo) {
     final jValue = arrayTwo[j];
 
     if (iValue < jValue) {
-      _result.add(iValue);
+      result.add(iValue);
       i = i + 1;
     } else {
-      _result.add(jValue);
+      result.add(jValue);
       j = j + 1;
     }
   }
 
   while (i < arrayOne.length) {
-    _result.add(arrayOne[i]);
+    result.add(arrayOne[i]);
     i++;
   }
 
   while (j < arrayTwo.length) {
-    _result.add(arrayTwo[j]);
+    result.add(arrayTwo[j]);
     j++;
   }
-  return _result;
+  return result;
 }
 
 void main() {
