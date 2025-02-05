@@ -3,10 +3,10 @@ import 'package:test/test.dart';
 
 void main() {
   test('merge sort', () {
-    final _input = [10, 4, 2, 3];
-    final _expected = [2, 3, 4, 10];
-    final _result = mergeSort(_input);
+    final input = [10, 4, 2, 3];
+    final expected = [2, 3, 4, 10];
+    final result = mergeSort(input);
 
-    expect(_result, _expected);
+    expect(result, expected);
   });
 }
