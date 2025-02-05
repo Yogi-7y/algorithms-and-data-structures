@@ -27,64 +27,64 @@ class IntComparable implements Comparable<int> {
 
 void main() {
   test('root node', () {
-    final _binarySearchTree = BinarySearchTree<int>()..insert(10);
+    final binarySearchTree = BinarySearchTree<int>()..insert(10);
 
-    expect(_binarySearchTree.root!.value, 10);
+    expect(binarySearchTree.root!.value, 10);
   });
 
   test('adds to the left if number is smaller', () {
-    final _binarySearchTree = BinarySearchTree<int>()
+    final binarySearchTree = BinarySearchTree<int>()
       ..insert(10)
       ..insert(5);
 
-    expect(_binarySearchTree.root!.left!.value, 5);
+    expect(binarySearchTree.root!.left!.value, 5);
   });
 
   test('adds to the right if number is greater', () {
-    final _binarySearchTree = BinarySearchTree<int>()
+    final binarySearchTree = BinarySearchTree<int>()
       ..insert(10)
       ..insert(15);
 
-    expect(_binarySearchTree.root!.right!.value, 15);
+    expect(binarySearchTree.root!.right!.value, 15);
   });
 
   test('multi level test for left', () {
-    final _binarySearchTree = BinarySearchTree<int>()
+    final binarySearchTree = BinarySearchTree<int>()
       ..insert(10)
       ..insert(5)
       ..insert(3);
 
-    expect(_binarySearchTree.root!.left!.left!.value, 3);
+    expect(binarySearchTree.root!.left!.left!.value, 3);
   });
 
   test('multilevel test for right', () {
-    final _binarySearchTree = BinarySearchTree<int>()
+    final binarySearchTree = BinarySearchTree<int>()
       ..insert(10)
       ..insert(15)
       ..insert(20);
 
-    expect(_binarySearchTree.root!.right!.right!.value, 20);
+    expect(binarySearchTree.root!.right!.right!.value, 20);
   });
 
   test('return true if value is present', () {
-    final _binarySearchTree = BinarySearchTree<int>()
+    final binarySearchTree = BinarySearchTree<int>()
       ..insert(10)
       ..insert(15)
       ..insert(20)
       ..insert(5)
       ..insert(3);
 
-    expect(_binarySearchTree.contains(3), true);
+    expect(binarySearchTree.contains(3), true);
   });
 
   test('return false if value is not present', () {
-    final _binarySearchTree = BinarySearchTree<int>()
+    final binarySearchTree = BinarySearchTree<int>()
       ..insert(10)
       ..insert(15)
       ..insert(20)
       ..insert(5)
       ..insert(3);
 
-    expect(_binarySearchTree.contains(30), false);
+    expect(binarySearchTree.contains(30), false);
   });
 }

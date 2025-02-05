@@ -7,36 +7,36 @@ bool areAnagram({
 }) {
   if (first.isEmpty && second.isEmpty) return true;
 
-  final _firstFrequencyCounter = _createFrequencyCounter(first.split(''));
-  final _secondFrequencyCounter = _createFrequencyCounter(second.split(''));
+  final firstFrequencyCounter = _createFrequencyCounter(first.split(''));
+  final secondFrequencyCounter = _createFrequencyCounter(second.split(''));
 
-  if (_firstFrequencyCounter.length != _secondFrequencyCounter.length) return false;
+  if (firstFrequencyCounter.length != secondFrequencyCounter.length) return false;
 
-  var _isAnagram = true;
+  var isAnagram = true;
 
-  _firstFrequencyCounter.forEach((key, value) {
-    final _secondFrequencyCounterValue = _secondFrequencyCounter[key];
+  firstFrequencyCounter.forEach((key, value) {
+    final secondFrequencyCounterValue = secondFrequencyCounter[key];
 
-    if (value != _secondFrequencyCounterValue) {
-      _isAnagram = false;
+    if (value != secondFrequencyCounterValue) {
+      isAnagram = false;
       return;
     }
   });
 
-  return _isAnagram;
+  return isAnagram;
 }
 
 Map<String, int> _createFrequencyCounter(List<String> array) {
-  final _frequencyCounter = <String, int>{};
-  array.forEach((element) {
-    if (element.trim().isEmpty) return;
+  final frequencyCounter = <String, int>{};
+  for (final element in array) {
+    if (element.trim().isEmpty) continue;
 
-    if (_frequencyCounter.containsKey(element)) {
-      _frequencyCounter[element] = _frequencyCounter[element]! + 1;
+    if (frequencyCounter.containsKey(element)) {
+      frequencyCounter[element] = frequencyCounter[element]! + 1;
     } else {
-      _frequencyCounter[element] = 1;
+      frequencyCounter[element] = 1;
     }
-  });
+  }
 
-  return _frequencyCounter;
+  return frequencyCounter;
 }

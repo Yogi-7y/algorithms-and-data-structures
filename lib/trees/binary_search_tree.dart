@@ -18,51 +18,51 @@ class BinarySearchTree<T extends int> {
   Node<T>? root;
 
   void insert(T value) {
-    final _node = Node(value: value);
+    final node = Node(value: value);
 
     if (root == null) {
-      root = _node;
+      root = node;
       return;
     }
 
-    var _current = root;
+    var current = root;
 
-    while (_node.value < _current!.value) {
-      if (_current.left == null) {
-        _current.left = _node;
+    while (node.value < current!.value) {
+      if (current.left == null) {
+        current.left = node;
         return;
       }
 
-      _current = _current.left;
+      current = current.left;
     }
 
-    while (_node.value > _current!.value) {
-      if (_current.right == null) {
-        _current.right = _node;
+    while (node.value > current!.value) {
+      if (current.right == null) {
+        current.right = node;
         return;
       }
 
-      _current = _current.right;
+      current = current.right;
     }
   }
 
   bool contains(T value) {
-    final _node = Node(value: value);
+    final node = Node(value: value);
 
     if (root == null) return false;
 
-    var _current = root;
+    var current = root;
 
-    while (_node.value <= _current!.value) {
-      if (_current.value == _node.value) return true;
-      if (_current.left == null) return false;
-      _current = _current.left;
+    while (node.value <= current!.value) {
+      if (current.value == node.value) return true;
+      if (current.left == null) return false;
+      current = current.left;
     }
 
-    while (_node.value >= _current!.value) {
-      if (_current.value == _node.value) return true;
-      if (_current.right == null) return false;
-      _current = _current.right;
+    while (node.value >= current!.value) {
+      if (current.value == node.value) return true;
+      if (current.right == null) return false;
+      current = current.right;
     }
 
     return false;

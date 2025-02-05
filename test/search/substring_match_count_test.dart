@@ -3,11 +3,11 @@ import 'package:test/test.dart';
 
 void main() {
   test('', () async {
-    const _input = 'wowomgzomg';
-    const _search = 'omg';
+    const input = 'wowomgzomg';
+    const search = 'omg';
 
-    final _result = subStringMatchCount(_input, _search);
+    final result = subStringMatchCount(input, search);
 
-    expect(_result, 2);
+    expect(result, 2);
   });
 }

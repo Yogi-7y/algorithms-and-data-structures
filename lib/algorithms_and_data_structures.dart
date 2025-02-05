@@ -1,3 +1,1 @@
-void main() {
-  print('Algorithms & Data structures');
-}
+void main() {}

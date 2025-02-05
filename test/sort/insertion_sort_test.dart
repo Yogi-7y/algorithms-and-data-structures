@@ -5,10 +5,10 @@ final _input = [10, 4, 2, 3];
 
 void main() {
   test('insertion sort', () {
-    final _result = insertionSort(_input);
+    final result = insertionSort(_input);
 
-    final _expected = [2, 3, 4, 10];
+    final expected = [2, 3, 4, 10];
 
-    expect(_result, _expected);
+    expect(result, expected);
   });
 }

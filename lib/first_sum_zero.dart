@@ -19,9 +19,3 @@ List<int> firstSumZero(List<int> input) {
 
   return [];
 }
-
-void main() {
-  final array = [-4, -3, -2, -1, 0, 1, 2, 3, 10];
-
-  print(firstSumZero(array)); // should return -3, 3
-}

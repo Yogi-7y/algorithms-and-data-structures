@@ -26,17 +26,17 @@ class SinglyLinkedList<T> {
   int length = 0;
 
   void push(T value) {
-    final _node = Node(value: value);
+    final node = Node(value: value);
 
     if (length == 0) {
-      head = _node;
-      tail = _node;
+      head = node;
+      tail = node;
       length = 1;
       return;
     }
 
-    tail?.addNode(_node);
-    tail = _node;
+    tail?.addNode(node);
+    tail = node;
     length++;
   }
 
@@ -67,9 +67,9 @@ class SinglyLinkedList<T> {
   T? shift() {
     if (length == 0) return null;
 
-    final _newHead = head?.next;
-    final _removedNode = head;
-    head = _newHead;
+    final newHead = head?.next;
+    final removedNode = head;
+    head = newHead;
     length--;
 
     if (length == 0) {
@@ -77,22 +77,22 @@ class SinglyLinkedList<T> {
       tail = null;
     }
 
-    return _removedNode?.value;
+    return removedNode?.value;
   }
 
   /// Adds element to the start of the list
   void unShift(T value) {
-    final _node = Node(value: value);
+    final node = Node(value: value);
 
     if (length == 0) {
-      head = _node;
-      tail = _node;
+      head = node;
+      tail = node;
       length++;
       return;
     }
 
-    _node.addNode(head!);
-    head = _node;
+    node.addNode(head!);
+    head = node;
     length++;
   }
 
@@ -100,10 +100,10 @@ class SinglyLinkedList<T> {
   T? get(int index) => _getNode(index)?.value;
 
   bool set(int index, T value) {
-    final _node = _getNode(index);
-    if (_node == null) return false;
+    final node = _getNode(index);
+    if (node == null) return false;
 
-    _node.value = value;
+    node.value = value;
     return true;
   }
 
@@ -124,16 +124,14 @@ class SinglyLinkedList<T> {
   }
 
   bool insert(int index, T value) {
-    final _newNode = Node(value: value);
+    final newNode = Node(value: value);
 
-    final _previousNode = _getNode(index - 1);
-    final _currentNode = _getNode(index);
+    final previousNode = _getNode(index - 1);
+    final currentNode = _getNode(index);
 
-    _previousNode?.next = _newNode;
-    _newNode.next = _currentNode;
+    previousNode?.next = newNode;
+    newNode.next = currentNode;
     length++;
     return true;
   }
-
-  // remove at index
 }

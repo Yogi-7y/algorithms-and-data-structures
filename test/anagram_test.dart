@@ -5,35 +5,37 @@ void main() {
   test(
     'should return true, if empty',
     () {
-      const _inputOne = '';
-      const _inputTwo = '';
+      const inputOne = '';
+      const inputTwo = '';
 
-      final _result = areAnagram(
-        first: _inputOne,
-        second: _inputTwo,
+      final result = areAnagram(
+        first: inputOne,
+        second: inputTwo,
       );
 
-      expect(_result, isTrue);
+      expect(result, isTrue);
     },
   );
 
   test('should return false, if input is `abc` and `abcd`', () {
-    const _inputOne = 'abc';
-    const _inputTwo = 'abcd';
+    const inputOne = 'abc';
+    const inputTwo = 'abcd';
 
-    final _result = areAnagram(
-      first: _inputOne,
-      second: _inputTwo,
+    final result = areAnagram(
+      first: inputOne,
+      second: inputTwo,
     );
 
-    expect(_result, isFalse);
+    expect(result, isFalse);
   });
 
-  _successAnagrams.forEach(
-    (element) => _anagramTest(value: element, matcher: isTrue),
-  );
+  for (final element in _successAnagrams) {
+    _anagramTest(value: element, matcher: isTrue);
+  }
 
-  _failureAnagrams.forEach((element) => _anagramTest(value: element, matcher: isFalse));
+  for (final element in _failureAnagrams) {
+    _anagramTest(value: element, matcher: isFalse);
+  }
 }
 
 void _anagramTest({
@@ -43,15 +45,15 @@ void _anagramTest({
   return test(
     'should return true, if input is `${value.first}` and `${value.second}`',
     () {
-      final _inputOne = value.first;
-      final _inputTwo = value.second;
+      final inputOne = value.first;
+      final inputTwo = value.second;
 
-      final _result = areAnagram(
-        first: _inputOne,
-        second: _inputTwo,
+      final result = areAnagram(
+        first: inputOne,
+        second: inputTwo,
       );
 
-      expect(_result, matcher);
+      expect(result, matcher);
     },
   );
 }

@@ -52,10 +52,3 @@ List<int> merge(List<int> arrayOne, List<int> arrayTwo) {
   }
   return result;
 }
-
-void main() {
-  final array = <int>[4, 10, 2, 6, 1, 3, 12, 2, 18, 3];
-
-  final result = mergeSort(array);
-  print(result);
-}
